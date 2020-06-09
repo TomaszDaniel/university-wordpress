@@ -101,7 +101,7 @@ class Search {
                 </li>
               `
                 )
-                .join("")} 
+                .join("")}
             ${results.professors.length ? "</ul>" : ""}
 
           </div>
@@ -165,13 +165,15 @@ class Search {
     }
   }
 
-  openOverlay() {
+  openOverlay(event) {
+    event.preventDefault();
     this.searchOverlay.addClass("search-overlay--active");
     $("body").addClass("body-no-scroll");
     this.searchField.val("");
     setTimeout(() => this.searchField.focus(), 301);
     console.log("our open method just ran!");
     this.isOverlayOpen = true;
+    return false;
   }
 
   closeOverlay() {
